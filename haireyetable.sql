@@ -1,7 +1,8 @@
 -- LEFT JOIN is equivalent to LEFT OUTER JOIN
 -- RIGHT JOIN is equivalent to RIGHT OUTER JOIN
 -- FULL JOIN is equivalent to FULL OUTER JOIN
--- INNER JOIN is equivalent to JOIN
+-- JOIN is equivalent to INNER JOIN
+-- http://stackoverflow.com/questions/406294/left-join-and-left-outer-join-in-sql-server
 
 DROP TABLE IF EXISTS hair;
 DROP TABLE IF EXISTS eyes;
