@@ -29,14 +29,51 @@ INSERT into personB(idB, petnameB) values (2,'B');
 INSERT into personB(idB, petnameB) values (3,'C');
 INSERT into personB(idB, petnameB) values (5,'E');
 
--- I want 1,2,3,4,5 (everything from both tables)
+-- What Types of Joins do I need for the following?
 
--- I want 1,2,3,4 (everything from personA table)
+-- I want 1,2,3,4,5 (everything from both tables) Full Join
+SELECT *
+FROM personA
+FULL JOIN personB
+ON personA.petnameA = personB.petnameB;
 
--- I want 1,4 (these items are only in personA table)
+-- I want 1,2,3,4 (everything from personA table) Left Join
+SELECT *
+FROM personA
+LEFT JOIN personB
+ON personA.petnameA = personB.petnameB;
 
--- I want 2,3 (these are the items common to both tables)
+-- I want 1,4 (these items are only in personA table) Left Join with constraint
+SELECT *
+FROM personA
+LEFT JOIN personB
+ON personA.petnameA = personB.petnameB
+WHERE personB.petnameB IS NULL;
 
--- I want 2,3,5 (these are in personB table and they may overlap with personA table)
+-- I want 2,3 (these are the items common to both tables) Inner Join
+SELECT *
+FROM personA
+INNER JOIN personB
+ON personA.petnameA = personB.petnameB;
 
--- I want 5 (the items that are only in the personB table)
+-- I want 2,3,5 (these are in personB table and they may overlap with personA table) Right Join
+SELECT *
+FROM personA
+RIGHT JOIN personB
+ON personA.petnameA = personB.petnameB;
+
+-- I want 5 (the items that are only in the personB table) Right Join with constraint
+SELECT *
+FROM personA
+RIGHT JOIN personB
+ON personA.petnameA = personB.petnameB
+WHERE personA.petnameA IS NULL;
+
+-- I want all possible combinations of the two tables
+SELECT *
+FROM personA, personB;
+
+--the above can also be done with a Cross Join
+SELECT *
+FROM personA
+CROSS JOIN personB;
